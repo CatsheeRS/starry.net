@@ -8,8 +8,8 @@ namespace Starry.NET
 {
     public class StarrySettings
     {
-        public required Action onLoad;
-        public required string assetPath;
-        public required string gameTitle;
+        public required Action OnLoad;
+        public required string AssetPath;
+        public required string GameTitle;
     }
 }

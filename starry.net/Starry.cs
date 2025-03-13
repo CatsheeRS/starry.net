@@ -31,7 +31,7 @@ namespace Starry.NET
             Raylib.InitWindow(800, 600, "Starry.NET");
             Log("Initalized window...");
 
-            Font testFont = Raylib.LoadFont($"{Settings.assetPath}/Hanuman.ttf");
+            Font testFont = Raylib.LoadFont($"{STLPath}/Hanuman.ttf");
 
             Raylib.SetTextureFilter(testFont.Texture, TextureFilter.Trilinear);
 
@@ -41,7 +41,7 @@ namespace Starry.NET
             float spacing = 1;
             string str = "No cameras are currently rendering";
 
-            StSaving.Save("log.txt", "BOBESSENCE");
+            settings.OnLoad?.Invoke();
             while (!Raylib.WindowShouldClose())
             {
                 Vec2I screenCentre = (Raylib.GetScreenWidth() / 2, Raylib.GetScreenHeight() / 2);
@@ -56,6 +56,7 @@ namespace Starry.NET
                 } else
                 {
                     Raylib.BeginMode2D(Camera.Current.rlCamera);
+
                     Raylib.EndMode2D();
                 }
 

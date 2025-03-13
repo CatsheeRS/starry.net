@@ -10,17 +10,25 @@ namespace Starry.NET.Utils.Logging
     {
         public static void Save(string path, string data)
         {
-            string fullDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.gameTitle);
+            string fullDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle);
             if (!Directory.Exists(fullDir))
                 Directory.CreateDirectory(fullDir);
 
             File.WriteAllText(Path.Join(fullDir, path), data);
-            Starry.Log($"Saved data to {fullDir}");
+        }
+
+        public static void Add(string path, string data)
+        {
+            string fullDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle);
+            if (!Directory.Exists(fullDir))
+                Directory.CreateDirectory(fullDir);
+
+            File.AppendAllText(Path.Join(fullDir, path), data);
         }
 
         public static string Load(string path)
         {
-            return File.ReadAllText(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.gameTitle, path));
+            return File.ReadAllText(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle, path));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Starry.NET;
+using Starry.NET.Objects;
 using static Starry.NET.Starry;
 namespace Game
 {
@@ -8,11 +9,11 @@ namespace Game
         {
             Load(new StarrySettings
             {
-                onLoad = () => { 
-
+                OnLoad = () => {
+                    Camera cam = new();
                 },
-                assetPath = Path.GetFullPath("assets"),
-                gameTitle = "spacestuff"
+                AssetPath = Path.GetFullPath("assets"),
+                GameTitle = "spacestuff"
             });
         }
     }

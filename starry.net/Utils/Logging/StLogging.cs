@@ -25,6 +25,7 @@ namespace Starry.NET.Utils.Logging
             for (int i = 0; i < objs.Length; i++)
                 ResultingLog += $"{StObjectToString(objs[i])} ";
 
+            StSaving.Add("log.txt", ResultingLog + "\n");
             Console.WriteLine(ResultingLog);
         }
 
