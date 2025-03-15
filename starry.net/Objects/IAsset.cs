@@ -1,10 +1,8 @@
 ﻿namespace Starry.NET.Objects
 {
-    public class IAsset
+    public interface IAsset
     {
-        public virtual void Load(string Path) { }
-        public virtual void Dispose() { }
-
-        public required Entity Entity { get; set; }
+        public void Load(string Path);
+        public void Dispose();
     }
 }

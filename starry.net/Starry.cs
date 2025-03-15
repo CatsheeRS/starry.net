@@ -2,6 +2,7 @@
 using System.Numerics;
 using Raylib_cs;
 using Starry.NET.Objects;
+using Starry.NET.Objects.Assets;
 using Starry.NET.Utils.Logging;
 
 namespace Starry.NET
@@ -25,15 +26,16 @@ namespace Starry.NET
         public static void Load(StarrySettings settings)
         {
             Settings = settings;
-            Log("Starting Starry.Net...");
+            Log("Starting Starry.NET");
 
             Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.VSyncHint | ConfigFlags.Msaa4xHint | ConfigFlags.HighDpiWindow);
-            Raylib.InitWindow(800, 600, "Starry.NET");
-            Log("Initalized window...");
+            Raylib.InitWindow(800, 600, Settings.GameTitle);
 
+            Log("Initalized window");
             Font testFont = Raylib.LoadFont($"{STLPath}/Hanuman.ttf");
+            Raylib.SetTextureFilter(testFont.Texture, TextureFilter.Bilinear);
 
-            Raylib.SetTextureFilter(testFont.Texture, TextureFilter.Trilinear);
+            Log("Loaded STL");
 
             Raylib.SetTargetFPS(60);
 
@@ -41,10 +43,23 @@ namespace Starry.NET
             float spacing = 1;
             string str = "No cameras are currently rendering";
 
+            Shape shape = new(Shape.ShapeType.Rectangle, Color.Red);
+            shape.Position = new Vector2(0, 0);
+            shape.Size = new Vector2(100, 100);
+
             settings.OnLoad?.Invoke();
             while (!Raylib.WindowShouldClose())
             {
                 Vec2I screenCentre = (Raylib.GetScreenWidth() / 2, Raylib.GetScreenHeight() / 2);
+
+                if (Raylib.IsKeyDown(KeyboardKey.W))
+                    Camera.Current.rlCamera.Offset -= Vector2.UnitY;
+                if (Raylib.IsKeyDown(KeyboardKey.S))
+                    Camera.Current.rlCamera.Offset += Vector2.UnitY;
+                if (Raylib.IsKeyDown(KeyboardKey.A))
+                    Camera.Current.rlCamera.Offset -= Vector2.UnitX;
+                if (Raylib.IsKeyDown(KeyboardKey.D))
+                    Camera.Current.rlCamera.Offset += Vector2.UnitX;
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.Black);
@@ -57,11 +72,14 @@ namespace Starry.NET
                 {
                     Raylib.BeginMode2D(Camera.Current.rlCamera);
 
+                    shape.Draw();
                     Raylib.EndMode2D();
                 }
 
                 Raylib.EndDrawing();
             }
+
+            Raylib.CloseWindow();
         }
 
         public static void Log(params object[] objs) => StLogging.Log(objs);

@@ -8,14 +8,15 @@ namespace Starry.NET.Objects.Assets
         public enum ShapeType
         {
             Rectangle,
-            Circle,
-            Triangle
+            Circle
         }
 
         private ShapeType Type;
         public Color Colour;
+        public Vector2 Position;
+        public Vector2 Size;
 
-        Shape(ShapeType Type, Color? Colour)
+        public Shape(ShapeType Type, Color? Colour)
         {
             this.Type = Type;
 
@@ -23,20 +24,25 @@ namespace Starry.NET.Objects.Assets
                 this.Colour = Colour.Value;
         }
 
-        //public void Draw() TURN THIUS OVER TO SPRITE COMPONENT
-        //{
-        //    switch (Type)
-        //    {
-        //        case ShapeType.Rectangle:
-        //            Raylib.DrawRectangle(Entity, 0, 100, 100, Colour);
-        //            break;
-        //        case ShapeType.Circle:
-        //            Raylib.DrawCircle(100, 100, 50, Colour);
-        //            break;
-        //        case ShapeType.Triangle:
-        //            Raylib.DrawTriangle(new Vector2(100, 100), new Vector2(200, 100), new Vector2(150, 200), Colour);
-        //            break;
-        //    }
-        //}
+        public void Draw() //TURN THIUS OVER TO SPRITE COMPONENT
+        {
+            switch (Type)
+            {
+                case ShapeType.Rectangle:
+                    Raylib.DrawRectangle((int)Position.X, (int)Position.Y, (int)Size.X, (int)Size.Y, Colour);
+                    break;
+                case ShapeType.Circle:
+                    Raylib.DrawCircle((int)Position.X, (int)Position.Y, Size.X * Size.Y, Colour);
+                    break;
+            }
+}
+
+        public void Load(string Path)
+        {
+        }
+
+        public void Dispose()
+        {
+        }
     }
 }

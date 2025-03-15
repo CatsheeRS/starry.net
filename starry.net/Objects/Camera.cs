@@ -20,7 +20,7 @@ namespace Starry.NET.Objects
                 rlCamera = new Camera2D
                 {
                     Target = new Vector2(0, 0),
-                    Offset = new Vector2(screenCentre.X, screenCentre.Y),
+                    Offset = new Vector2(0, 0),
                     Rotation = 0,
                     Zoom = 1
                 };
