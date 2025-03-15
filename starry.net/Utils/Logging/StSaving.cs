@@ -19,7 +19,9 @@ namespace Starry.NET.Utils.Logging
 
         public static void Delete(string path)
         {
-            File.Delete(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle, path));
+            string fullDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle);
+            if (Directory.Exists(fullDir))
+                File.Delete(Path.Join(fullDir, path));
         }
 
         public static void Add(string path, string data)

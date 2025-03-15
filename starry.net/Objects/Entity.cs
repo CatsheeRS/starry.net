@@ -33,6 +33,6 @@ namespace Starry.NET.Objects
             return Components.FirstOrDefault(c => c is T) as T;
         }
 
-        protected void Log(params object[] objs) => StLogging.Log(objs);
+        protected static void Log(params object[] objs) => StLogging.Log(objs);
     }
 }
