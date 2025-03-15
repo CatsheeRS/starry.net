@@ -1,5 +1,7 @@
-﻿using Starry.NET;
+﻿using Game.Species;
+using Starry.NET;
 using Starry.NET.Objects;
+using Starry.NET.Utils.Entities;
 using static Starry.NET.Starry;
 namespace Game
 {
@@ -11,6 +13,7 @@ namespace Game
             {
                 OnLoad = () => {
                     Camera cam = new();
+                    Entities.Create(new Player());
                 },
                 AssetPath = Path.GetFullPath("assets"),
                 GameTitle = "spacestuff"

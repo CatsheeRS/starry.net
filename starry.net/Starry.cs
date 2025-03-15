@@ -3,6 +3,7 @@ using System.Numerics;
 using Raylib_cs;
 using Starry.NET.Objects;
 using Starry.NET.Objects.Assets;
+using Starry.NET.Utils.Entities;
 using Starry.NET.Utils.Logging;
 
 namespace Starry.NET
@@ -26,6 +27,7 @@ namespace Starry.NET
         public static void Load(StarrySettings settings)
         {
             Settings = settings;
+            StSaving.Delete("log.txt");
             Log("Starting Starry.NET");
 
             Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.VSyncHint | ConfigFlags.Msaa4xHint | ConfigFlags.HighDpiWindow);
@@ -42,10 +44,6 @@ namespace Starry.NET
             float size = 40;
             float spacing = 1;
             string str = "No cameras are currently rendering";
-
-            Shape shape = new(Shape.ShapeType.Rectangle, Color.Red);
-            shape.Position = new Vector2(0, 0);
-            shape.Size = new Vector2(100, 100);
 
             settings.OnLoad?.Invoke();
             while (!Raylib.WindowShouldClose())
@@ -71,8 +69,8 @@ namespace Starry.NET
                 } else
                 {
                     Raylib.BeginMode2D(Camera.Current.rlCamera);
+                    Entities.Update();
 
-                    shape.Draw();
                     Raylib.EndMode2D();
                 }
 

@@ -17,6 +17,11 @@ namespace Starry.NET.Utils.Logging
             File.WriteAllText(Path.Join(fullDir, path), data);
         }
 
+        public static void Delete(string path)
+        {
+            File.Delete(Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle, path));
+        }
+
         public static void Add(string path, string data)
         {
             string fullDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Starry.Settings.GameTitle);
