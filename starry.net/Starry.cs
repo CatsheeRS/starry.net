@@ -30,7 +30,7 @@ namespace Starry.NET
             StSaving.Delete("log.txt");
             Log("Starting Starry.NET");
 
-            Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.VSyncHint | ConfigFlags.Msaa4xHint | ConfigFlags.HighDpiWindow);
+            //Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.VSyncHint | ConfigFlags.Msaa4xHint | ConfigFlags.HighDpiWindow);
             Raylib.InitWindow(800, 600, Settings.GameTitle);
 
             Log("Initalized window");
@@ -51,13 +51,18 @@ namespace Starry.NET
                 Vec2I screenCentre = (Raylib.GetScreenWidth() / 2, Raylib.GetScreenHeight() / 2);
 
                 if (Raylib.IsKeyDown(KeyboardKey.W))
-                    Camera.Current.rlCamera.Offset -= Vector2.UnitY;
-                if (Raylib.IsKeyDown(KeyboardKey.S))
                     Camera.Current.rlCamera.Offset += Vector2.UnitY;
+                if (Raylib.IsKeyDown(KeyboardKey.S))
+                    Camera.Current.rlCamera.Offset -= Vector2.UnitY;
                 if (Raylib.IsKeyDown(KeyboardKey.A))
-                    Camera.Current.rlCamera.Offset -= Vector2.UnitX;
-                if (Raylib.IsKeyDown(KeyboardKey.D))
                     Camera.Current.rlCamera.Offset += Vector2.UnitX;
+                if (Raylib.IsKeyDown(KeyboardKey.D))
+                    Camera.Current.rlCamera.Offset -= Vector2.UnitX;
+
+                if (Raylib.GetMouseWheelMove() > 0)
+                    Camera.Current.rlCamera.Zoom += 0.1f;
+                if (Raylib.GetMouseWheelMove() < 0)
+                    Camera.Current.rlCamera.Zoom -= 0.1f;
 
                 Raylib.BeginDrawing();
                 Raylib.ClearBackground(Color.Black);
