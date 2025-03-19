@@ -9,17 +9,17 @@ namespace Starry.NET.Utils
 {
     public static class Assets
     {
-        internal static IAsset[] LoadedAssets = [];
+        internal static IAsset[] LoadedAssets = new IAsset[0];
 
-        public static T Load<T>(string path) where T : IAsset
+        public static T Load<T>(string path) where T : IAsset, new()
         {
             if (LoadedAssets.Any(asset => asset.GetType() == typeof(T)))
                 return (T)LoadedAssets.First(asset => asset.GetType() == typeof(T));
 
-            T asset = Activator.CreateInstance<T>(); //no idea what the fuck this is but
+            T asset = new T();
 
             asset.Load(Path.Combine(Starry.Settings.AssetPath, path));
-            LoadedAssets = [.. LoadedAssets, asset];
+            LoadedAssets = LoadedAssets.Concat(new IAsset[] { asset }).ToArray();
 
             return asset;
         }

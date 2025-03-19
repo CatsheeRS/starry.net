@@ -34,5 +34,9 @@ namespace Starry.NET.Objects.Assets
             StLogging.Log("loaded rl image");
             RefreshTexture();
         }
+
+        public StImage()
+        {
+        }
     }
 }
