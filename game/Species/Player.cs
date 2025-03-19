@@ -17,11 +17,13 @@ namespace Game.Species
         private int time;
         private Random rand = new();
 
+        private bool addingScale = true;
         public override void Create()
         {
             playerSprite = new Sprite();
-            playerSprite.Image = (StImage)Assets.Load<StImage>("player.png");
+            playerSprite.Image = Assets.Load<StImage>("player.png");
 
+            Scale = new Vector2(0.01f, 0.01f);
             Position = new Vector2(100, 100);
             AddComponent(playerSprite);
             Log("Player has been created");
@@ -29,13 +31,11 @@ namespace Game.Species
 
         public override void Update()
         {
-            time++;
-            if (time % 60 == 0)
-            {
-                Log("Updated player colour");
-                playerSprite.Colour = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255), 255);
-                time = 0;
-            }
+            if (Rotation >= 360)
+                Rotation = 0;
+
+            Rotation++;
+            Scale += new Vector2(.001f, .001f);
         }
     }
 }

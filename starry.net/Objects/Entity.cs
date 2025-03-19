@@ -14,7 +14,10 @@ namespace Starry.NET.Objects
         internal Component[] Components = Array.Empty<Component>();
         public EntityState State { get; internal set; }
 
+        //TRANSDFORMATIONLOAIWEIYIINONOO STUFF
         public Vector2 Position { get; set; }
+        public float Rotation { get; set; }
+        public Vector2 Scale { get; set; } = new Vector2(1,1);
 
         public virtual void Create() { }
         public virtual void Update() { }

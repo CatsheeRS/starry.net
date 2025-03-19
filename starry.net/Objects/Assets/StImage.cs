@@ -13,9 +13,14 @@ namespace Starry.NET.Objects.Assets
         internal Image RLImage;
         internal Texture2D RlTexture;
 
+        internal Rectangle SourceRect;
+        internal Rectangle DestRect;
+
         internal void RefreshTexture()
         {
             RlTexture = Raylib.LoadTextureFromImage(RLImage);
+            SourceRect = new Rectangle(0, 0, RlTexture.Width, RlTexture.Height);
+            DestRect = new Rectangle(0, 0, RlTexture.Width, RlTexture.Height);
         }
 
         public void Dispose()

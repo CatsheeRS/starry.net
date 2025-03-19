@@ -11,10 +11,10 @@ namespace Starry.NET.Utils
     {
         internal static IAsset[] LoadedAssets = [];
 
-        public static IAsset Load<T>(string path) where T : IAsset
+        public static T Load<T>(string path) where T : IAsset
         {
             if (LoadedAssets.Any(asset => asset.GetType() == typeof(T)))
-                return LoadedAssets.First(asset => asset.GetType() == typeof(T));
+                return (T)LoadedAssets.First(asset => asset.GetType() == typeof(T));
 
             T asset = Activator.CreateInstance<T>(); //no idea what the fuck this is but
 
