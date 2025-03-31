@@ -9,8 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Colorful.Console" Version="1.2.15" />
     <PackageReference Include="Genbox.VelcroPhysics" Version="0.1.0-alpha.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Raylib-cs" Version="7.0.1" />
+    <PackageReference Include="WatsonTcp" Version="6.0.9" />
   </ItemGroup>
 
 	<ItemGroup>

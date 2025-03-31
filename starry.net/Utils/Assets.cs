@@ -16,10 +16,10 @@ namespace Starry.NET.Utils
             if (LoadedAssets.Any(asset => asset.GetType() == typeof(T)))
                 return (T)LoadedAssets.First(asset => asset.GetType() == typeof(T));
 
-            T asset = new T();
+            T asset = new();
 
             asset.Load(Path.Combine(Starry.Settings.AssetPath, path));
-            LoadedAssets = LoadedAssets.Concat(new IAsset[] { asset }).ToArray();
+            LoadedAssets.Append(asset);
 
             return asset;
         }

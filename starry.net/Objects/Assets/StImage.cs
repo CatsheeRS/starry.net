@@ -31,7 +31,7 @@ namespace Starry.NET.Objects.Assets
         public void Load(string Path)
         {
             RLImage = Raylib.LoadImage(Path);
-            StLogging.Log("loaded rl image");
+            Starry.Log("loaded rl image");
             RefreshTexture();
         }
 

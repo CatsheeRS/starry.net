@@ -28,16 +28,18 @@ namespace Starry.NET
         {
             Settings = settings;
             StSaving.Delete("log.txt");
-            Log("Starting Starry.NET");
+            Colorful.Console.WriteAscii("Starry.NET");
+
+            Log(System.Drawing.Color.LightYellow, "Starting Starry.NET");
 
             Raylib.SetConfigFlags(ConfigFlags.ResizableWindow | ConfigFlags.VSyncHint | ConfigFlags.Msaa4xHint | ConfigFlags.HighDpiWindow);
             Raylib.InitWindow(800, 600, Settings.GameTitle);
 
-            Log("Initalized window");
+            Log(System.Drawing.Color.LightGreen, "Initalized window");
             Font testFont = Raylib.LoadFont($"{STLPath}/Hanuman.ttf");
             Raylib.SetTextureFilter(testFont.Texture, TextureFilter.Bilinear);
 
-            Log("Loaded STL");
+            Log(System.Drawing.Color.LightGreen, "Loaded STL");
 
             Raylib.SetTargetFPS(60);
 
@@ -85,7 +87,8 @@ namespace Starry.NET
             Raylib.CloseWindow();
         }
 
-        public static void Log(params object[] objs) => StLogging.Log(objs);
+        public static void Log(System.Drawing.Color color, params object[] objs) => StLogging.Log(color, objs);
+        public static void Log(params object[] objs) => StLogging.Log(System.Drawing.Color.LightGray, objs);
     }
 
 }

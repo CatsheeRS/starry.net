@@ -8,7 +8,7 @@ namespace Starry.NET.Objects
     {
         public StImage Image { get; set; }
         public Color Colour { get; set; } = Color.White;
-
+        
         internal override void EarlyUpdate()
         {
             if (Image == null)

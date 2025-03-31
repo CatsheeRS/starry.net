@@ -11,5 +11,6 @@ namespace Starry.NET
         public required Action OnLoad;
         public required string AssetPath;
         public required string GameTitle;
+        public int Port { get; } = 41886;
     }
 }

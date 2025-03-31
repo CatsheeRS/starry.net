@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Console = Colorful.Console;
 
 namespace Starry.NET.Utils.Logging
 {
     internal static class StLogging
     {
-        public static void Log(params object[] objs)
+        public static void Log(Color colour, params object[] objs)
         {
             string ResultingLog = "";
             StackTrace stackTrace = new();
@@ -26,7 +28,7 @@ namespace Starry.NET.Utils.Logging
                 ResultingLog += $"{StObjectToString(objs[i])} ";
 
             StSaving.Add("log.txt", ResultingLog + "\n");
-            Console.WriteLine(ResultingLog);
+            Console.WriteLine(ResultingLog, colour);
         }
 
 

@@ -1,7 +1,9 @@
 ﻿using Raylib_cs;
+using Starry.NET;
 using Starry.NET.Objects;
 using Starry.NET.Objects.Assets;
 using Starry.NET.Utils;
+using Starry.NET.Utils.Networking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,11 @@ namespace Game.Species
             Position = new Vector2(100, 100);
             AddComponent(playerSprite);
             Log("Player has been created");
+            Log("Trying to connect to server...");
+
+            Client.Connect("127.0.0.1", Starry.NET.Starry.Settings.Port);
+
+            Log("Should have connected to server wowie :D");
         }
 
         public override void Update()
@@ -36,6 +43,11 @@ namespace Game.Species
 
             Rotation++;
             Scale += new Vector2(.001f, .001f);
+
+            if (Raylib.IsKeyDown(KeyboardKey.F) && Client.Connected())
+            {
+                Client.SendMessage("player.sayHi", "meow");
+            }
         }
     }
 }
