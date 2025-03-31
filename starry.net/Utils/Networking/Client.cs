@@ -51,28 +51,7 @@ namespace StarryNet.Utils.Networking
             {
                 TCPClient = new(address, port);
                 TCPClient.Events.MessageReceived += ReceiveMessage;
-                TCPClient.Settings.Logger += (severity, s) =>
-                {
-                    //WHY IS THERE SO MUCH FUCKING SEVERITY CASES?!?!?!??
-                    switch (severity)
-                    {
-                        case Severity.Warn:
-                            Starry.Log(Color.LightYellow, s);
-                            break;
-
-                        case Severity.Debug:
-                        case Severity.Info:
-                            Starry.Log(s);
-                            break;
-
-                        case Severity.Alert:
-                        case Severity.Emergency:
-                        case Severity.Critical:
-                        case Severity.Error:
-                            Starry.Log(Color.Salmon, s);
-                            break;
-                    }
-                };
+                TCPClient.Settings.Logger += Networking.HandleTCPLog;
 
                 TCPClient.Connect();
             } catch (Exception e)

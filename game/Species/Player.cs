@@ -31,7 +31,7 @@ namespace Game.Species
             Log("Player has been created");
             Log("Trying to connect to server...");
 
-            Client.Connect("127.0.0.1", Starry.NET.Starry.Settings.Port);
+            Client.Connect("127.0.0.1", Starry.Settings.Port);
 
             Log("Should have connected to server wowie :D");
         }
