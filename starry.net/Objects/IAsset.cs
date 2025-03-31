@@ -1,4 +1,4 @@
-﻿namespace Starry.NET.Objects
+﻿namespace StarryNet.Objects
 {
     public interface IAsset
     {

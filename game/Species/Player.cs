@@ -1,9 +1,9 @@
 ﻿using Raylib_cs;
-using Starry.NET;
-using Starry.NET.Objects;
-using Starry.NET.Objects.Assets;
-using Starry.NET.Utils;
-using Starry.NET.Utils.Networking;
+using StarryNet;
+using StarryNet.Objects;
+using StarryNet.Objects.Assets;
+using StarryNet.Utils;
+using StarryNet.Utils.Networking;
 using System;
 using System.Collections.Generic;
 using System.Linq;

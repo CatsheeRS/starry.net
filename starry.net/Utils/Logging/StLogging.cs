@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Console = Colorful.Console;
 
-namespace Starry.NET.Utils.Logging
+namespace StarryNet.Utils.Logging
 {
     internal static class StLogging
     {

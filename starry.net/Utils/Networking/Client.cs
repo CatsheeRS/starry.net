@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Text;
 using WatsonTcp;
 
-namespace Starry.NET.Utils.Networking
+namespace StarryNet.Utils.Networking
 {
     public class ClientInfo
     {

@@ -1,5 +1,5 @@
-﻿using Starry.NET.Utils.Entities;
-using Starry.NET.Utils.Logging;
+﻿using StarryNet.Utils.Entities;
+using StarryNet.Utils.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starry.NET.Objects
+namespace StarryNet.Objects
 {
     public class Entity
     {

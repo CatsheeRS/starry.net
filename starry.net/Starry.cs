@@ -1,12 +1,12 @@
 ﻿using System.Diagnostics;
 using System.Numerics;
 using Raylib_cs;
-using Starry.NET.Objects;
-using Starry.NET.Objects.Assets;
-using Starry.NET.Utils.Entities;
-using Starry.NET.Utils.Logging;
+using StarryNet.Objects;
+using StarryNet.Objects.Assets;
+using StarryNet.Utils.Entities;
+using StarryNet.Utils.Logging;
 
-namespace Starry.NET
+namespace StarryNet
 {
     public class Starry
     {

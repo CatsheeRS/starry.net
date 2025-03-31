@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starry.NET.Objects
+namespace StarryNet.Objects
 {
     public class Component
     {

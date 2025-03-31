@@ -1,12 +1,12 @@
 ﻿using Raylib_cs;
-using Starry.NET.Utils.Logging;
+using StarryNet.Utils.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starry.NET.Objects.Assets
+namespace StarryNet.Objects.Assets
 {
     public class StImage : IAsset
     {

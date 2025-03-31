@@ -1,8 +1,8 @@
 ﻿using Raylib_cs;
-using Starry.NET.Objects.Assets;
+using StarryNet.Objects.Assets;
 using System.Numerics;
 
-namespace Starry.NET.Objects
+namespace StarryNet.Objects
 {
     public class Sprite : Component
     {

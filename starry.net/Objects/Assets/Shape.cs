@@ -1,7 +1,7 @@
 ﻿using Raylib_cs;
 using System.Numerics;
 
-namespace Starry.NET.Objects.Assets
+namespace StarryNet.Objects.Assets
 {
     public class Shape : IAsset
     {

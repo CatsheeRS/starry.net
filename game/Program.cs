@@ -1,7 +1,7 @@
 ﻿using Game.Species;
-using Starry.NET;
-using Starry.NET.Objects;
-using Starry.NET.Utils.Entities;
+using StarryNet;
+using StarryNet.Objects;
+using StarryNet.Utils.Entities;
 using static Starry.NET.Starry;
 namespace Game
 {

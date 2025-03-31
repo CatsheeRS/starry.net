@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Starry.NET.Utils.Networking
+namespace StarryNet.Utils.Networking
 {
     internal static class Networking
     {
